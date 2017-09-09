@@ -45,9 +45,8 @@ int createElectionMessage(char* listenPort, char** sendBuf){
 	strcpy(message, "ELECTION\n");
 	char*ptr = message;
 	strcpy(&ptr[9], tmpHost);
-	strcpy(&ptr[9+strlen(tmpHost)], ",");
-	strcpy(&ptr[9+strlen(tmpHost)+1], listenPort);
-	strcpy(&ptr[14+strlen(tmpHost)],"\n");
+	strcpy(&ptr[9+strlen(tmpHost)], listenPort);
+	strcpy(&ptr[13+strlen(tmpHost)],"\n");
 
 	memcpy(*sendBuf, message, 100);
 	free(message);
